@@ -1,222 +1,142 @@
-/* Base layout */
-/* Body */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #2b3e, #4b37);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #2d3436;
+    background-color: #90ee90;
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+header {
+    background-color: forestgreen;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-    align-items: center; /* center everything horizontally */
-    justify-content: flex-start;
-    padding: 50px 20px 20px 20px; /* top padding large, bottom smaller */
-    margin: 0;
-    min-height: 100vh;
-    color: #fff;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Header */
-header {
-    width: 100%; /* make header span full width */
-    background: #1a1a1a;
-    color: #fff;
-    padding: 1.5rem 20px; /* horizontal padding matches body */
-    text-align: center;
-    margin-bottom: 40px; /* spacing below header */
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 40px;
-    min-height: 1.5em;
-    color: #ffffffee;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-header p {
-    font-size: 1.2rem;
-    color: #bbb;
+header img {
+    max-height: 70px;
+    margin-bottom: 15px;
 }
 
 nav {
-    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
 }
 
 nav a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1.7rem;
-    text-align: center;
-    margin: 0 5rem;
-    transition: color 0.3s ease;
+    font-size: 21px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
-    color: #ff9800;
-    font-size: 1.8rem;
-}
-
-/* Input group */
-.input-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-/* Input field */
-input[type="text"] {
-    padding: 12px 16px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    width: 260px;
-    max-width: 100%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.2s ease;
-}
-
-input[type="text"]:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    display: inline-block; /* treat links like blocks */
-    text-align: center; /* center the text inside link */
-    margin: 0.5rem auto; /* center horizontally */
-    padding: 0.5rem 1rem; /* make it look like a button */
-    background: #1a1a1a;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.dropbtn:hover {
-    background: #ff9800;
-    scale: 1.04;
-}
-
-.dropbtn .arrow {
-    display: inline-block;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown.active .arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 200px;
-    z-index: 1;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-
-    /* hidden by default */
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: auto;
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-    pointer-events: none;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 12px 16px;
-    text-decoration: none;
-    background-color: #fff;
-    color: #333;
-    transition: background 0.2s;
-}
-
-.dropdown-content a:hover {
-    background: #ff9800;
-    scale: 1.04;
-}
-
-/* Show the menu when active */
-.dropdown.active .dropdown-content {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-/* Button */
-button {
-    background: #000000;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition:
-        background 0.3s,
-        transform 0.1s;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    background: #ff9900;
-    scale: 1.04;
-}
-
-/* Result display */
-#result {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px 30px;
-    margin-top: 30px;
-    font-size: 1.2rem;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    color: #ffffffdd;
-}
-
-/* Links */
-a {
-    color: #ffd54f;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-a:hover {
-    color: #fff176;
-    text-decoration: underline;
-    scale: 1.04;
+    background-color: #2d6a4f;
+    color: #d8f3dc;
 }
 
 section {
-    display: none;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.85);
+    scroll-margin-top: 200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    min-height: 400px;
 }
 
-section.active {
-    display: block;
+h1 {
+    color: #1b4332;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #74c69d;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
+h2 {
+    color: #2d6a4f;
+    margin-top: 30px;
+    font-weight: 600;
 }
 
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1.2rem;
+}
+
+#subjects p,
+#team p {
+    background-color: #f8faf9;
+    padding: 12px 18px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border-left: 5px solid #40916c;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+#subjects p:hover,
+#team p:hover {
+    transform: translateX(10px);
+    background-color: lightgray;
+}
+
+#water {
+    background-image: linear-gradient(to bottom right, #ffffff, #e9f5f2);
+    border: 1px solid #cce3de;
+}
+
+#water p {
+    font-style: italic;
+    color: #2d6a4f;
+}
+
+#values h2 {
+    background: #1b4332;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    section {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
 }
